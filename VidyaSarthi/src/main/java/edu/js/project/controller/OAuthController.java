@@ -26,7 +26,7 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/VidyaSarthi")
-@CrossOrigin(origins = "http://localhost:5174")
+@CrossOrigin
 public class OAuthController {
 
     @Autowired
@@ -61,12 +61,12 @@ public class OAuthController {
 
 
 
-    Instant now = Instant.now();
+
 
     @PostMapping("/loginAcc")
     public ResponseEntity<?>loginAcc(@RequestBody LoginRequest req){
 
-
+        Instant now = Instant.now();
         Authentication authenticate = authManager.authenticate(
                 new UsernamePasswordAuthenticationToken(req.username(),
                         req.password())

@@ -1,5 +1,6 @@
 package edu.js.project.utility;
 
+import edu.js.project.NewEntities.NewMaterial;
 import edu.js.project.dto.*;
 import edu.js.project.entity.*;
 import org.mapstruct.Mapping;
@@ -56,6 +57,9 @@ public interface Mapper {
 
 
     Complain complainDtoToComplain(ComplainDto complainDto);
+
+
+    NewMaterialDto newMaterialToNewMaterialDto(NewMaterial newMaterial);
 
 
 

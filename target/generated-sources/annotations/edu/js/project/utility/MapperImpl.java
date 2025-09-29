@@ -1,9 +1,11 @@
 package edu.js.project.utility;
 
+import edu.js.project.NewEntities.NewMaterial;
 import edu.js.project.dto.AdminClgDto;
 import edu.js.project.dto.BranchDto;
 import edu.js.project.dto.ComplainDto;
 import edu.js.project.dto.MaterialDto;
+import edu.js.project.dto.NewMaterialDto;
 import edu.js.project.dto.SemesterDto;
 import edu.js.project.dto.StudentDto;
 import edu.js.project.dto.SubjectDto;
@@ -28,7 +30,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-09-16T18:13:22+0530",
+    date = "2025-09-28T12:00:53+0530",
     comments = "version: 1.6.3, compiler: javac, environment: Java 21.0.3 (Eclipse Adoptium)"
 )
 @Component
@@ -316,6 +318,25 @@ public class MapperImpl implements Mapper {
         complain.materialId( complainDto.getMaterialId() );
 
         return complain.build();
+    }
+
+    @Override
+    public NewMaterialDto newMaterialToNewMaterialDto(NewMaterial newMaterial) {
+        if ( newMaterial == null ) {
+            return null;
+        }
+
+        NewMaterialDto.NewMaterialDtoBuilder newMaterialDto = NewMaterialDto.builder();
+
+        newMaterialDto.id( newMaterial.getId() );
+        newMaterialDto.pdfFilename( newMaterial.getPdfFilename() );
+        newMaterialDto.materialId( newMaterial.getMaterialId() );
+        newMaterialDto.subjectCode( newMaterial.getSubjectCode() );
+        newMaterialDto.facultyId( newMaterial.getFacultyId() );
+        newMaterialDto.materialType( newMaterial.getMaterialType() );
+        newMaterialDto.regulationId( newMaterial.getRegulationId() );
+
+        return newMaterialDto.build();
     }
 
     protected UnitDto unitToUnitDto(Unit unit) {
